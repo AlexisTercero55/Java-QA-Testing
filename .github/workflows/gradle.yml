@@ -28,7 +28,7 @@ jobs:
         distribution: 'adopt'
         
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./gradlew build --scan
   
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
