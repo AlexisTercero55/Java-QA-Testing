@@ -9,7 +9,7 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main" , "17-basic-unit-tests-using-junit"]
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
@@ -28,7 +28,16 @@ jobs:
         distribution: 'adopt'
         
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./gradlew build --scan
+
+    - name: Store reports
+      if: failure()
+      uses: actions/upload-artifact@v3
+      with:
+        name: reports
+        path: |
+          **/build/reports/
+          **/build/test-results/
   
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4

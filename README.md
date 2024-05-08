@@ -1,29 +1,20 @@
 Building Unit Tests with JUnit
 ==============================
-In this assignment, you'll get some practice at building effective unit tests. Using the example from our videos, you'll be developing tests for the Demo class, including the isTriangle() and main() methods.
 
-Your task is to create a file, DemoTest.java, which properly tests the Demo class to ensure it is working properly. The correct Demo.java file is provided for your use.
+## Continous integration by GitHub Actions
 
-Below, are instructions to get you started.  We provide instructions for building and running the tests.  We've provided you with the files needed to get you started.  Information about the directory structure is also included below.
+[![Java CI with Gradle](https://github.com/AlexisTercero55/Java-QA-Testing/actions/workflows/gradle.yml/badge.svg)](https://github.com/AlexisTercero55/Java-QA-Testing/actions/workflows/gradle.yml)
 
-### Deliverable
-Your deliverable is the `DemoTest.java` which tests the Demo class.
-
-### Evaluation
-In order to measure the adequacy of your tests, we will be using mutation analysis. We have generated many variations of the Demo.java file, each with a single fault introduced. These faults (mutations) include things like swapping a binary operator for another (e.g., '+' instead of '-'), or changing the variable used for another variable of the same type (e.g., 'a' substituted for 'b').
-
-
-Package Prerequisites
+Requirements
 ---------------------
 Java 8 JDK
 
-### Installing Java 8
-#### Windows / macOS / Linux
+### Install Java 8
 To install Java, download the **JDK** installer from: 
   http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
 #### Ubuntu
-On Ubuntu 16.04 and up, to install Java (OpenJDK) run:
+On Ubuntu to install Java (OpenJDK) run:
 
     sudo apt update
     sudo apt install default-jdk
@@ -47,16 +38,9 @@ Alternatively, if you intend to run everything from command-line and you have mu
 
 On some systems, eclipse may have issues when run with Java 9 (when the `JAVA_HOME` variable points to the Java 9 directory).  Set the `JAVA_HOME` system/shell varible to point to Java 8.
 
-
-### Eclipse: Running with HiDPI Displays
-Eclipse should work out of the box with HiDPI displays (also called UHD, Retina, 4K/5K/...) on Windows and macOS.  Unfortunately, this isn't true for Linux (at least on the current release of Ubuntu with a GTK-based window manager).  If you encounter an issue running eclipse with a HiDPI display on Linux, you may need to disable SWT-GTK.  To do this, set the `SWT_GTK` property to 0 (`SWT_GTK=0`).  This will make the buttons and menus in eclipse readable.  I use the following command on my Ubuntu machine (from the directory containing my eclipse installation):
-    
-    export SWT_GTK3=0; ./eclipse
-
-
 Building
 ---------
-This contains instructions for building the project.  The unmodified, original set of files in this project will build correctly.
+Instructions for building the project Java Plugging based.
 
 ### From Eclipse
 #### Importing the Project to your Workspace
