@@ -9,7 +9,7 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ "main" , "17-basic-unit-tests-using-junit"]
+    branches: [ "main" , "DEV"]
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
