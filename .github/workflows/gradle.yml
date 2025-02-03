@@ -32,9 +32,8 @@ jobs:
 
     - name: Store reports
 #      if: failure()
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-pages-artifact@v3.0.1 #actions/upload-artifact@v4
       with:
-        name: github-pages # Artifact name must match what deploy-pages expects
         path: build/reports/tests/test
 #          **/build/test-results/
   
@@ -45,25 +44,24 @@ jobs:
         path: build/libs
         
 # Deploy job
-#  deploy:
-#    needs: gradle
- #   runs-on: ubuntu-latest
-  #  permissions:
-#      id-token: write # Required for OIDC token generation
-      #contents: write # Required to deploy to GitHub Pages
-      #pages: write
-    #steps:
-    #- name: Download reports artifact
-#      uses: actions/download-artifact@v4
-      #with:
-        #name: github-pages # Match the artifact name used in upload-artifact
-        #path: build/reports/tests/test
+  deploy:
+    needs: gradle
+    runs-on: ubuntu-latest
+    permissions:
+     id-token: write # Required for OIDC token generation
+     contents: write # Required to deploy to GitHub Pages
+     pages: write
+    steps:
+    - name: Download reports artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: github-pages # Match the artifact name used in upload-artifact
+        path: build/reports/tests/test
 
-    #- name: Deploy to GitHub Pages
-     # uses: actions/deploy-pages@v4
-#      with:
-        #token: ${{ secrets.GITHUB_TOKEN }}
-        #target-branch: DEV
+    - name: Deploy to GitHub Pages
+      uses: actions/deploy-pages@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
         #build-dir: build/reports/tests/test
     
     
