@@ -34,7 +34,7 @@ jobs:
 #      if: failure()
       uses: actions/upload-artifact@v4
       with:
-        name: reports
+        name: github-pages # Artifact name must match what deploy-pages expects
         path: build/reports/tests/test
 #          **/build/test-results/
   
@@ -55,7 +55,7 @@ jobs:
     - name: Download reports artifact
       uses: actions/download-artifact@v4
       with:
-        name: reports
+        name: github-pages # Match the artifact name used in upload-artifact
         path: build/reports/tests/test
 
     - name: Deploy to GitHub Pages
