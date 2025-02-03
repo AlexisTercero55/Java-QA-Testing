@@ -21,3 +21,13 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 }
 
+test {
+    // testLogging.showStandardStreams = true
+    //testLogging.exceptionFormat = 'full'
+    testLogging {
+        showStandardStreams = true
+        events = ["passed", "failed", "skipped"]
+        exceptionFormat = 'full'
+    }
+}
+
