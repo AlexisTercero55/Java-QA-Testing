@@ -48,6 +48,9 @@ jobs:
   deploy:
     needs: gradle
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write # Required for OIDC token generation
+      contents: write # Required to deploy to GitHub Pages
     steps:
     - name: Download reports artifact
       uses: actions/download-artifact@v4
