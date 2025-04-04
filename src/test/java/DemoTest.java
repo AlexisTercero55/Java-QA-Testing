@@ -60,16 +60,18 @@ public class DemoTest {
     }
     @Test
     public void test_main_program_1() {
-        ByteArrayInputStream in = new ByteArrayInputStream("5\n12\n13\n".getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream("5\n13\n12\n".getBytes());
         System.setIn(in);
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
         String[] args = {};
         Demo.main(args);
-        String consoleOutput = "Enter side 1: \n";
-        consoleOutput += "Enter side 2: \n";
-        consoleOutput += "Enter side 3: \n";
-        consoleOutput += "This is a triangle.\n";
-        assertEquals(out.toString(),consoleOutput);
+        // Build expected output with exact system line endings
+        String expectedOutput = String.join(System.lineSeparator(),
+        "Enter side 1: ",
+        "Enter side 2: ", 
+        "Enter side 3: ",
+        "This is a triangle.", ""); // Empty string forces trailing newline
+        assertEquals(out.toString(),expectedOutput);
     }
 }
